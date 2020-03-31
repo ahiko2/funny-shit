@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+   char wholeword[200]="cat=neko,dog=inu,pig=buta"; // value is fixable
+   char word[200];                                  // any of you like
+   
+   int c,i=0,u=0;
+   char str[10];
+   do
+   {
+      c=getchar();
+      str[i]=c;
+      i++;
+   } while (c!='\n');
+   char *token;
+   token=strtok(wholeword,str);
+
+ while(token!=0)
+   {
+      cout<<token<<endl;
+      u++;
+      token=strtok(0,str);   
+   }
+   cout<<u;
+   
+   return 0;
+}
