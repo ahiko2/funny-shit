@@ -1,0 +1,78 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+//student program marking
+class student
+{
+	private:
+	int roll,sub1,sub2,sub3;
+	string name;
+	public:
+	void rollandname(int roll,string name)
+	{
+		this->roll=roll;
+		this->name=name;
+	}
+	void markdata(int sub1,int sub2,int sub3)
+	{
+		if(sub1 <101 && sub2 < 101 && sub3 <101)
+			{	this->sub1=sub1;
+				this->sub2=sub2;
+				this->sub3=sub3;
+			}
+		else
+		{
+			cout<<"inputing error. One of math is being exceeding 100";
+			return;
+		}
+		
+		
+	}
+	int total_mark()
+	{
+		return sub1+sub2+sub3;
+	}
+	char grade()
+	{
+		float av_mark=total_mark()/3;
+		if(av_mark>60)
+			return 'A';
+		else if(av_mark>=40 && av_mark<60)
+		 	return 'B';
+		else
+			return 'C';
+
+	}
+
+};
+
+int main()
+{
+	student s_data;
+	int roll,sub1,sub2,sub3;
+	string name;
+	
+	cout<<"Enter roll and name of student\n";
+	cout<<"roll :";
+	cin>>roll;
+	cout<<"name :";
+	cin>>name;
+	s_data.rollandname(roll,name);
+	/////////////
+	cout<<"enter mark\n";
+	cout<<"math :";
+	cin>>sub1;
+	cout<<"english :";
+	cin>>sub2;
+	cout<<"chemistry :";
+	cin>>sub3;
+	
+	s_data.markdata(sub1,sub2,sub3);
+	cout<<s_data.total_mark()<<endl;
+	cout<<s_data.grade();
+	
+
+
+	
+}
