@@ -50,3 +50,17 @@ int main(){
         cout<<s.what()<<endl;
     }
 }
+/*
+void deacce(){
+        for(;;){
+            speed-=10;
+            cout<<"reducing ="<<speed<<endl;
+            if(speed==30){
+                stable st;
+                st.setspeed(speed);
+                throw st;
+
+            }
+        }
+    }
+*/
