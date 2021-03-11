@@ -1,0 +1,97 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+class Student{
+    private:
+    string NewName;
+    char NewGrade;
+    public:
+    //default constructot
+    Student();
+    //overloading
+    Student(string,char);
+    //destructor
+    ~Student();
+    //accessor functions
+    string getname() const;
+        //get name
+        //@return string name of student
+    char GetGrade() const;
+        //get grade
+        //@return grade of student
+    //mutator function
+    void setname(string);
+        //setname
+    void setgrade(char);
+        //setgrade
+
+
+};
+Student::Student(){
+    NewGrade=' ';
+}
+Student::Student(string n,char g){
+    NewName=n;
+    NewGrade=g;
+}
+Student::~Student(){}
+string Student::getname() const{
+    return NewName;
+}
+char Student::GetGrade() const{
+    return NewGrade;
+}
+void Student::setname(string n){
+    NewName=n;
+
+}
+void Student::setgrade(char g){
+    NewGrade=g;
+}
+void fillvector(vector<Student>&);
+//fillvector = fill in student information
+//;param vector <student>& student in class
+void printvector(const vector<Student>&);
+int main(){
+
+    vector<Student> myclass;
+       fillvector(myclass);
+       printvector(myclass);
+
+
+       return 0;
+
+
+    return 0;
+}
+void fillvector(vector<Student>& newMyclass){
+    cout<<" How many students in class? :";
+    int class_size;
+    string name;
+    char grade;
+    cin>>class_size;
+    
+    for(int i=0;i<class_size;i++){
+        cout<<"Student Name :";
+        cin>>name;
+        cout<<"Grade        :";
+        cin>>grade;
+
+       Student newstudent(name,grade);
+       newMyclass.push_back(newstudent);
+
+    }
+
+}
+void printvector(const vector<Student>& newmyclass)
+{
+     int size=newmyclass.size();
+    for(auto  i=0;i<size;i++){
+        cout<<"student name :"<<newmyclass[i].getname();
+        cout<<"Grade :"<<newmyclass[i].GetGrade();
+        cout<<endl;
+    }
+    
+
+}
